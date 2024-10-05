@@ -1,0 +1,19 @@
+footer {
+    background-color: rgb(31, 34, 45);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 55px;
+    width: 100%;
+    position: sticky;
+    top: 100%;
+    
+}
+
+.copyright {
+    color: rgb(224, 224, 224);
+    font-size: 0.8rem;
+    padding-left: 35px;
+    margin-top: 0;
+    margin-bottom: 0;
+}

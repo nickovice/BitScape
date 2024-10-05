@@ -1,0 +1,95 @@
+<section class="section1Home">
+    <h1>Encontrá Tu Hardware Ideal</h1>
+    <p class="intro">Empezá buscando por producto o explorá las principales categorías. Compará precios y specs.</p>
+    <div class="searchDiv" style="margin-top: 30px;">
+      <div class="col-md-6">
+        <div class="d-flex flexSearchBox">
+          <div class="input-group me-2">
+            <input type="text" class="form-control custom-input" placeholder="Buscar productos...">
+            <button class="btn btn-outline-secondary custom-button" type="button">Buscar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section2Home">
+    <div class="container text-center section2Cont">
+      <h2>Categorías Principales</h2>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 section2Col">
+          <a [routerLink]="['/products']" class="btn btn-block d-flex flex-column align-items-center btn-section2"><img src="cpu.svg"
+              alt="" class="cpuIcon">CPUs</a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 section2Col">
+          <a [routerLink]="['/products']" class="btn btn-block d-flex flex-column align-items-center btn-section2"><img src="gpu.svg" alt=""
+              class="gpuIcon">GPUs</a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 section2Col">
+          <a [routerLink]="['/products']" class="btn btn-block d-flex flex-column align-items-center btn-section2"><img src="ram.svg" alt=""
+              class="ramIcon">RAM</a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 section2Col">
+          <a [routerLink]="['/products']" class="btn btn-block d-flex flex-column align-items-center btn-section2"><img src="mother.svg"
+              alt="" class="motherIcon">Motherboards</a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 section2Col">
+          <a [routerLink]="['/products']" class="btn btn-block d-flex flex-column align-items-center btn-section2"><img src="storage.svg"
+              alt="" class="storageIcon">Almacenamiento</a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 section2Col">
+          <a [routerLink]="['/products']" class="btn btn-block d-flex flex-column align-items-center btn-section2"><img src="psu.svg" alt=""
+              class="psuIcon">Alimentación</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <p></p>
+  </section>
+  <section class="section3Home">
+    <h3>Productos Recomendados</h3>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-3 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Título del Producto 1</h5>
+              <img src="ruta_a_la_imagen_1.jpg" class="card-img-top" alt="Producto 1">
+              <a [routerLink]="['/products']" class="btn d-flex mt-2 btn-tarjeta justify-content-center">Ver Producto</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-12 col-sm-6 col-md-3 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Título del Producto 2</h5>
+              <img src="ruta_a_la_imagen_2.jpg" class="card-img-top" alt="Producto 2">
+              <a [routerLink]="['/products']" class="btn d-flex mt-2 btn-tarjeta justify-content-center">Ver Producto</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-12 col-sm-6 col-md-3 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Título del Producto 3</h5>
+              <img src="ruta_a_la_imagen_3.jpg" class="card-img-top" alt="Producto 3">
+              <a [routerLink]="['/products']" class="btn d-flex mt-2 btn-tarjeta justify-content-center">Ver Producto</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-12 col-sm-6 col-md-3 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Título del Producto 4</h5>
+              <img src="" class="card-img-top" alt="Producto 4">
+              <a [routerLink]="['/products']" class="btn d-flex mt-2 btn-tarjeta justify-content-center">Ver Producto</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-footer></app-footer>
