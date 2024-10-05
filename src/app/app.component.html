@@ -21,5 +21,7 @@
   </div>
 </header>
 <main>
-<router-outlet></router-outlet>
+    <div class="maindiv" [@routeAnimations]="o && o.activatedRouteData['animation']">
+        <router-outlet #o="outlet"></router-outlet>
+      </div>
 </main>
