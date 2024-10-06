@@ -1,0 +1,36 @@
+.searchDiv {
+    padding-top: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.col-md-6 {
+    max-width: 600px;
+    width: 100%;
+
+}
+
+.input-group .form-control.custom-input {
+    background-color: #9f9f9f57;
+    border: 2px solid #ffffff6f;
+    color: #c0c0c0;
+    border-radius: 30px;
+}
+
+.input-group .form-control.custom-input::placeholder {
+    color: #bdbdbd;
+}
+
+.input-group .btn.custom-button {
+    background-color: #9f9f9f57;
+    color: white;
+    border: 2px solid #ffffff6f;
+    border-radius: 30px;
+}
+
+.input-group .btn.custom-button:hover {
+    background-color: #010b376c;
+}
