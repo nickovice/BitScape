@@ -9,6 +9,7 @@ import { AdminComponent } from './admin/admin.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchBoxComponent } from './search-box/search-box.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SearchBoxComponent } from './search-box/search-box.component';
     HomeComponent,
     AdminComponent,
     FooterComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,54 +1,70 @@
 <div class="mainDiv">
-<div class="container mt-4">
-    <div class="row" style="justify-content: center;">
-        <app-search-box></app-search-box>
-      <!-- Contenedor de Ordenar Por (Horizontal) -->
-      <div class="col-md-12 mb-4 sortDiv">
-        <div class="card sortDivDiv">
-          <div class="card-header">
-            Ordenar por
-          </div>
-          <div class="card-body sortButtonsContainer">
-            <div class="d-flex justify-content-between sortButtons">
-              <button class="btn sortBtn">Precio Ascendente</button>
-              <button class="btn sortBtn">Precio Descendente</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Contenedor de Filtros -->
-      <div class="col-md-4 mb-4">
-        <!-- Contenedor de Filtros (Vertical) -->
-        <div class="card filters">
-          <div class="card-header">
-            Filtros
+  <div class="container mt-4">
+    <div class="row">
+      <app-search-box></app-search-box>
+
+      <!-- Contenedor de Filtros y Ordenar por (en una sola card) -->
+      <div class="col-md-12 mb-4">
+        <div class="card filters-sort">
+          <div class="card-header filtradoHead">
+            Opciones de Búsqueda
           </div>
           <div class="card-body">
-            <div>
-              <label>
-                <input type="checkbox"> Filtro 1
-              </label>
-            </div>
-            <div>
-              <label>
-                <input type="checkbox"> Filtro 2
-              </label>
+            <div class="row" style="justify-content: center;">
+              <!-- Filtros -->
+              <div class="col-md-6 filtrarpor">
+                <div>
+                  <h5 style="margin-bottom: 10px;">Filtros</h5>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      Categorías
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-start">
+                      <div *ngFor="let category of categories">
+                        <li><a class="dropdown-item" href="#">{{category.name}}</a></li>
+                      </div>
+                    </ul>
+                  </div>
+                  <div class="dropdown" style="margin-top: 20px;">
+                    <button class="btn btn-secondary dropdown-toggle" style="margin-bottom: 15px;" type="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      Marcas
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-start">
+                      <div *ngFor="let category of categories">
+                        <li><a class="dropdown-item" href="#">{{category.name}}</a></li>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ordenar por -->
+              <div class="col-md-6 d-flex flex-column" style="justify-content: center;">
+                <h5 style="margin-bottom: 10px;">Ordenar por</h5>
+                <button class="btn sortBtn">Precio Ascendente</button>
+                <button class="btn sortBtn">Precio Descendente</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-8 mb-4">
-        <!-- Listado de Productos -->
+
+      <!-- Listado de Productos -->
+      <div class="col-md-12">
         <div class="row" style="justify-content: center;">
-          <div class="col-md-12 mb-4 productCard" *ngFor="let productCard of productsCards">
+          <div class="col-md-4 col-sm-6 mb-4 productCard" *ngFor="let productCard of productsCards">
             <div class="card h-100 d-flex flex-column tarjeta">
               <div class="d-flex justify-content-center">
-                <img src="{{ productCard.img }}" class="card-img-top" alt="{{ productCard.name }}" style="object-fit: contain; height: 200px;">
+                <img src="{{ productCard.img }}" class="card-img-top" alt="{{ productCard.name }}"
+                  style="object-fit: contain; height: 200px;">
               </div>
               <div class="card-body d-flex flex-column flex-grow-1">
                 <h5 class="card-title">{{ productCard.name }}</h5>
-                <p class="card-text"><strong>Precio: {{ productCard.price | currency:'USD': 'symbol':'2.2-2' }} USD</strong></p>
-                <button class="btn btn-primary mt-auto">Ver Detalles</button>
+                <p class="card-text"><strong>Precio: {{ productCard.price | currency:'USD': 'symbol':'2.2-2' }}
+                    USD</strong></p>
+                <button class="btn btn-primary mt-auto" [routerLink]="['/products/1']">Ver Detalles</button>
               </div>
             </div>
           </div>
@@ -57,6 +73,5 @@
     </div>
   </div>
 </div>
-  
-  
+
 <app-footer></app-footer>

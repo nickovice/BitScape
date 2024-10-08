@@ -1,3 +1,4 @@
+@import '../../variables';
 
 .section1Home {
     padding-bottom: 140px;
@@ -52,7 +53,7 @@ h3 {
 }
 
 .btn-section2 {
-    background-color: rgb(48, 53, 66);
+    background-color: $button-color;
     color: white;
     border-radius: 15px;
     padding-top: 35px;
@@ -121,7 +122,7 @@ h3 {
     text-align: center;
     padding: 15px;
     border-radius: 15px;
-    background-color: rgb(48, 53, 66);
+    background-color: rgb(31, 34, 45);
     color: white;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.195);
 }
