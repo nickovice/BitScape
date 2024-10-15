@@ -1,3 +1,28 @@
 p{
     color: white;
 }
+h1{
+    padding-top: 35px;
+}
+
+.my-5{
+    color: black;
+}
+
+.mainDiv {
+    background: linear-gradient(to bottom right, #000862, #33c2ff64, #000862);
+    overflow-x: hidden;
+    height: 100vh;
+    justify-content: center ;
+}
+
+#about{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}

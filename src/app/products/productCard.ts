@@ -1,6 +1,6 @@
 export interface ProductCard {
     name: string,
-    img: string,
+    image: string,
     price: number,
     id: number,
 }
