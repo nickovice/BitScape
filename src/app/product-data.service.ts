@@ -17,10 +17,20 @@ export class ProductDataService {
   getAllProducts(): Observable<ProductCard[]> { 
     return this.http.get<ProductCard[]>(url + '/products');
   }
+
   getAllCategories(): Observable<Category[]> { 
     return this.http.get<Category[]>(url + '/categories');
   }
-  getAllBrands(): Observable<Brand[]> { 
-    return this.http.get<Brand[]>(url + '/products');
+
+  getProductsByCategory(category_id: string): Observable<ProductCard[]>{
+    return this.http.get<ProductCard[]>(url + '/products?category=' + category_id);
+  }
+
+  getProductsByBrand(brand: string): Observable<ProductCard[]>{
+    return this.http.get<ProductCard[]>(url + '/products?brand=' + brand);
+  }
+
+  search(query: string){
+    return this.http.get<ProductCard[]>(url + '/products?search=' + query);
   }
 }

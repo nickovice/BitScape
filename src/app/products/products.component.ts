@@ -17,13 +17,43 @@ export class ProductsComponent implements OnInit {
   brands: Brand[] = []
 
   constructor(private productDataService: ProductDataService) { }
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.loadData();
   }
 
+
   loadData(): void {
-    this.productDataService.getAllProducts().subscribe(productsCards => this.productsCards = productsCards);
-    this.productDataService.getAllCategories().subscribe(categories => this.categories = categories);
-    this.productDataService.getAllBrands().subscribe(brands => this.brands = brands);
+    this.productDataService.getAllProducts().subscribe(productsCards => {
+      this.productsCards = productsCards;
+      this.brands = Array.from(new Set(productsCards.map(p => p.brand)))
+                         .map(brand => ({ brand }));
+    });
+  
+    this.productDataService.getAllCategories().subscribe(
+      categories => this.categories = categories
+    );
+  }
+
+  filterByCategory(category_id: string) {
+    this.productDataService.getProductsByCategory(category_id).subscribe(productsCards => this.productsCards = productsCards);
+  }
+
+  filterByBrand(brand: string) {
+    this.productDataService.getProductsByBrand(brand).subscribe(productsCards => this.productsCards = productsCards);
+  }
+
+  sort(order: string) {
+    this.productsCards.sort((a: ProductCard, b: ProductCard) => {
+      if (order == "asc") {
+        return a.price - b.price
+      }
+      else {
+        return b.price - a.price
+      }
+    })
+  }
+
+  search(query: string){
+    this.productDataService.search(query).subscribe(productsCards => this.productsCards = productsCards);
   }
 }

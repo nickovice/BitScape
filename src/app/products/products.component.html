@@ -22,7 +22,7 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-start">
                       <div *ngFor="let category of categories">
-                        <li><a class="dropdown-item" href="#">{{category.info}}</a></li>
+                        <li><a class="dropdown-item" (click)="filterByCategory(category.name)">{{category.info}}</a></li>
                       </div>
                     </ul>
                   </div>
@@ -33,7 +33,7 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-start">
                       <div *ngFor="let brand of brands">
-                        <li><a class="dropdown-item" href="#">{{brand.brand}}</a></li>
+                        <li><a class="dropdown-item" (click)="filterByBrand(brand.brand)">{{brand.brand}}</a></li>
                       </div>
                     </ul>
                   </div>
@@ -43,8 +43,8 @@
               <!-- Ordenar por -->
               <div class="col-md-6 d-flex flex-column" style="justify-content: center;">
                 <h5 style="margin-bottom: 10px;">Ordenar por</h5>
-                <button class="btn sortBtn">Precio Ascendente</button>
-                <button class="btn sortBtn">Precio Descendente</button>
+                <button class="btn sortBtn" (click)="sort('asc')">Precio Ascendente</button>
+                <button class="btn sortBtn" (click)="sort('desc')">Precio Descendente</button>
               </div>
             </div>
           </div>

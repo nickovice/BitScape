@@ -3,4 +3,5 @@ export interface ProductCard {
     image: string,
     price: number,
     id: number,
+    brand: string
 }
