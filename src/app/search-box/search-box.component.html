@@ -2,7 +2,7 @@
     <div class="col-md-6">
       <div class="d-flex flexSearchBox">
         <div class="input-group me-2">
-          <input type="text" class="form-control custom-input" [(ngModel)]="searchQuery" (keydown.enter)="search()" placeholder="Buscar productos...">
+           <input type="text" class="form-control custom-input" [(ngModel)]="query" (keydown.enter)="search()" placeholder="Buscar productos...">
           <button class="btn btn-outline-secondary custom-button" type="button" (click)="search()">Buscar</button>
         </div>
       </div>

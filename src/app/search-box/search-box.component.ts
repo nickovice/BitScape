@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ProductsComponent } from '../products/products.component';
+import { SearchService } from '../search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-box',
@@ -8,14 +9,16 @@ import { ProductsComponent } from '../products/products.component';
 })
 export class SearchBoxComponent {
 
-  constructor(private productsComponent: ProductsComponent) { }
+  query: string = '';
+
+  constructor(private searchService: SearchService, private router: Router) { }
   ngOnInit(): void {
     
   }
-  searchQuery: string = '';
 
-search(){
-  const query = this.searchQuery;
-  this.productsComponent.search(query)
-}
+  search(){
+    this.searchService.updateQuery(this.query);
+    this.router.navigate(['/products']);
+  }
+  
 }

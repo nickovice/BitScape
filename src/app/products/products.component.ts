@@ -3,6 +3,7 @@ import { ProductCard } from './productCard';
 import { Category } from './category';
 import { ProductDataService } from '../product-data.service';
 import { Brand } from './brand';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-products',
@@ -16,9 +17,13 @@ export class ProductsComponent implements OnInit {
 
   brands: Brand[] = []
 
-  constructor(private productDataService: ProductDataService) { }
+  constructor(private productDataService: ProductDataService, private searchService: SearchService) { }
   ngOnInit(): void {
     this.loadData();
+    this.searchService.searchQuery.subscribe(query => {
+      console.log(query);
+      this.productDataService.search(query).subscribe(productsCards => this.productsCards = productsCards);
+    }) 
   }
 
 
@@ -53,7 +58,5 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  search(query: string){
-    this.productDataService.search(query).subscribe(productsCards => this.productsCards = productsCards);
-  }
+
 }
