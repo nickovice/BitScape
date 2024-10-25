@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from './product';
 import { ProductDetailService } from '../../product-detail.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,13 +11,17 @@ import { ProductDetailService } from '../../product-detail.service';
 export class ProductDetailComponent {
   product: Product | null = null;
 
-  constructor(private productDetailService: ProductDetailService) { }
+  constructor(private route: ActivatedRoute, private productDetailService: ProductDetailService) { }
+
   ngOnInit(): void{
     this.loadData();
   }
 
   loadData(): void {
-    this.productDetailService.getOne().subscribe(product => this.product = product);
+    const productId = this.route.snapshot.paramMap.get('id');  // Obtener el 'id' de la URL
+    if (productId) {
+      this.productDetailService.getOne(productId).subscribe(product => this.product = product);
+    }
 
   }
 }
