@@ -1,7 +1,6 @@
 <div class="container mt-5 mainContainer">
   <h2 class="mb-4">Administración de Productos</h2>
-
-  <!-- Formulario para crear productos -->
+  
   <div class="card mb-4">
     <div class="card-header">
       <h5>Crear Producto</h5>
@@ -53,7 +52,7 @@
     <div class="card-body">
       <form #createCategoryForm="ngForm" (ngSubmit)="onCreateCategory(createCategoryForm)" novalidate>
         <div class="mb-3">
-          <label for="createCategoryName" class="form-label">Nombre de la Categoría (en minusculas y separado por guiones bajos )</label>
+          <label for="createCategoryName" class="form-label">Nombre de la Categoría (en minusculas y separado por guiones bajos)</label>
           <input type="text" class="form-control" id="createCategoryName" name="name" ngModel required #name="ngModel">
           <div *ngIf="name.invalid && name.touched" class="text-danger">El nombre es obligatorio.</div>
         </div>
@@ -67,39 +66,39 @@
     </div>
   </div>
   
-
-  <!-- Tabla de productos -->
   <div class="card">
     <div class="card-header">
       <h5>Lista de Productos</h5>
     </div>
     <div class="card-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Marca</th>
-            <th>Precio</th>
-            <th>Información</th>
-            <th>Categoría</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let product of products">
-            <td>{{ product.id }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.brand }}</td>
-            <td>${{ product.price }}</td>
-            <td>{{ product.info }}</td>
-            <td>{{ product.category }}</td>
-            <td>
-              <button class="btn btn-danger btn-sm" (click)="onDeleteProduct(product.id)">Borrar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Marca</th>
+              <th>Precio</th>
+              <th>Información</th>
+              <th>Categoría</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{ product.id }}</td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.brand }}</td>
+              <td>${{ product.price }}</td>
+              <td>{{ product.info }}</td>
+              <td>{{ product.category }}</td>
+              <td>
+                <button class="btn btn-danger btn-sm" (click)="onDeleteProduct(product.id)">Borrar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -108,29 +107,30 @@
       <h5>Lista de Categorias</h5>
     </div>
     <div class="card-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Información</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let category of categories">
-            <td>{{ category.id }}</td>
-            <td>{{ category.name }}</td>
-            <td>{{ category.info }}</td>
-            <td>
-              <button class="btn btn-danger btn-sm" (click)="onDeleteCategory(category.id)">Borrar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Información</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let category of categories">
+              <td>{{ category.id }}</td>
+              <td>{{ category.name }}</td>
+              <td>{{ category.info }}</td>
+              <td>
+                <button class="btn btn-danger btn-sm" (click)="onDeleteCategory(category.id)">Borrar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-
 </div>
 
 <app-footer></app-footer>

@@ -25,7 +25,6 @@ export class AdminComponent {
     })
   }
 
-
   onCreateProduct(form: NgForm) {
     if (form.valid) {
       const categoryId = Number(form.value.category);

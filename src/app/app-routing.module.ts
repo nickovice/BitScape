@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { animation: 'HomePage' } },
   { path: 'products', component: ProductsComponent, data: { animation: 'ProductsPage' } },
   { path: 'about', component: AboutComponent, data: { animation: 'AboutPage' } },
-  { path: 'somethinghere', component: AdminComponent, data: { animation: 'AdminPage' } },
+  { path: 'admin', component: AdminComponent, data: { animation: 'AdminPage' } },
   { path: 'products/:id', component: ProductDetailComponent },
   { path: '**', component: HomeComponent }
 ];
