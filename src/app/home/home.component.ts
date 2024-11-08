@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from './card'
+import { Product } from '../admin/product';
 
 @Component({
   selector: 'app-home',
@@ -7,26 +8,23 @@ import { Card } from './card'
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
+  
   cards: Card[] = [
     {
       name: "Ryzen 9 5950X",
-      img: "https://i.imgur.com/sHNgeuI.jpeg",
-      id: 1
+      img: "https://i.imgur.com/sHNgeuI.jpeg"
     },
     {
       name: "Intel Core i9 14900",
-      img: "https://http2.mlstatic.com/D_NQ_NP_632174-MLU78933066918_092024-O.webp",
-      id: 2
+      img: "https://http2.mlstatic.com/D_NQ_NP_632174-MLU78933066918_092024-O.webp"
     },
     {
-      name: "blabla",
-      img: "https://acf.geeknetic.es/imgw/imagenes/auto/2022/5/10/mrc-como-elegir-el-procesador-ideal-para-tu-pc.jpg?f=webp",
-      id: 2
+      name: "ASUS ROG Crosshair X670E Hero",
+      img: "https://http2.mlstatic.com/D_NQ_NP_917440-MLA52081654076_102022-O.webp"
     },
     {
-      name: "blabla",
-      img: "https://acf.geeknetic.es/imgw/imagenes/auto/2022/5/10/mrc-como-elegir-el-procesador-ideal-para-tu-pc.jpg?f=webp",
-      id: 2
+      name: "NVidia RTX 4090",
+      img: "https://m.media-amazon.com/images/I/51EL-FaK4XL.jpg"
     },
   ]
   constructor() { }
