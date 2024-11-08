@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductCard } from './products/productCard';
 import { Category } from './products/category';
-import { Brand } from './products/brand';
+import { NgForm } from '@angular/forms';
+import { Product } from './admin/product';
 
 const url = "https://bitscape-api.onrender.com";
 
@@ -14,23 +15,30 @@ export class ProductDataService {
 
   constructor(private http: HttpClient) { }
   
-  getAllProducts(): Observable<ProductCard[]> { 
-    return this.http.get<ProductCard[]>(url + '/products');
+  getAllProducts(): Observable<Product[]> { 
+    return this.http.get<Product[]>(url + '/products');
   }
 
   getAllCategories(): Observable<Category[]> { 
     return this.http.get<Category[]>(url + '/categories');
   }
 
-  getProductsByCategory(category_id: string): Observable<ProductCard[]>{
-    return this.http.get<ProductCard[]>(url + '/products?category=' + category_id);
+  getProductsByCategory(category_id: string): Observable<Product[]>{
+    return this.http.get<Product[]>(url + '/products?category=' + category_id);
   }
 
-  getProductsByBrand(brand: string): Observable<ProductCard[]>{
-    return this.http.get<ProductCard[]>(url + '/products?brand=' + brand);
+  getProductsByBrand(brand: string): Observable<Product[]>{
+    return this.http.get<Product[]>(url + '/products?brand=' + brand);
   }
 
   search(query: string){
-    return this.http.get<ProductCard[]>(url + '/products?search=' + query);
+    return this.http.get<Product[]>(url + '/products?search=' + query);
   }
+
+  createProduct(product:Product) {
+    return this.http.post<any>(url + '/products', product);
+  }
+
+
+
 }

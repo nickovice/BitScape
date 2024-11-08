@@ -1,145 +1,88 @@
 <div class="container mt-5 mainContainer">
-    <h2 class="mb-4">Administración de Productos</h2>
-  
-    <!-- Formulario para crear productos -->
-    <div class="card mb-4">
-      <div class="card-header">
-        <h5>Crear Producto</h5>
-      </div>
-      <div class="card-body">
-        <form>
-          <div class="mb-3">
-            <label for="createProductName" class="form-label">Nombre del Producto</label>
-            <input type="text" class="form-control" id="createProductName" name="name" required>
-          </div>
-          <div class="mb-3">
-            <label for="createProductBrand" class="form-label">Marca</label>
-            <input type="text" class="form-control" id="createProductBrand" name="brand" required>
-          </div>
-          <div class="mb-3">
-            <label for="createProductPrice" class="form-label">Precio</label>
-            <input type="number" class="form-control" id="createProductPrice" name="price" required>
-          </div>
-          <div class="mb-3">
-            <label for="createProductInfo" class="form-label">Información</label>
-            <textarea class="form-control" id="createProductInfo" name="info" rows="3" required></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="createProductImageUrl" class="form-label">URL de la Imagen</label>
-            <input type="url" class="form-control" id="createProductImageUrl" name="imageUrl" required>
-          </div>
-          <div class="mb-3">
-            <label for="createProductCategory" class="form-label">Categoría</label>
-            <select class="form-select" id="createProductCategory" name="category" required>
-              <option value="">Seleccione una categoría</option>
-              <option value="Electrónica">Electrónica</option>
-              <option value="Hogar">Hogar</option>
-              <option value="Jardín">Jardín</option>
-              <option value="Deportes">Deportes</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Crear</button>
-        </form>
-      </div>
+  <h2 class="mb-4">Administración de Productos</h2>
+
+  <!-- Formulario para crear productos -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h5>Crear Producto</h5>
     </div>
-  
-    <!-- Formulario para actualizar productos -->
-    <div class="card mb-4">
-      <div class="card-header">
-        <h5>Actualizar Producto</h5>
-      </div>
-      <div class="card-body">
-        <form>
-          <div class="mb-3">
-            <label for="updateProductId" class="form-label">ID del Producto</label>
-            <input type="text" class="form-control" id="updateProductId" name="id" required>
-          </div>
-          <div class="mb-3">
-            <label for="updateProductName" class="form-label">Nombre del Producto</label>
-            <input type="text" class="form-control" id="updateProductName" name="name" required>
-          </div>
-          <div class="mb-3">
-            <label for="updateProductBrand" class="form-label">Marca</label>
-            <input type="text" class="form-control" id="updateProductBrand" name="brand" required>
-          </div>
-          <div class="mb-3">
-            <label for="updateProductPrice" class="form-label">Precio</label>
-            <input type="number" class="form-control" id="updateProductPrice" name="price" required>
-          </div>
-          <div class="mb-3">
-            <label for="updateProductInfo" class="form-label">Información</label>
-            <textarea class="form-control" id="updateProductInfo" name="info" rows="3" required></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="updateProductImageUrl" class="form-label">URL de la Imagen</label>
-            <input type="url" class="form-control" id="updateProductImageUrl" name="imageUrl" required>
-          </div>
-          <div class="mb-3">
-            <label for="updateProductCategory" class="form-label">Categoría</label>
-            <select class="form-select" id="updateProductCategory" name="category" required>
-              <option value="">Seleccione una categoría</option>
-              <option value="Electrónica">Electrónica</option>
-              <option value="Hogar">Hogar</option>
-              <option value="Jardín">Jardín</option>
-              <option value="Deportes">Deportes</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-warning">Actualizar</button>
-        </form>
-      </div>
-    </div>
-  
-    <!-- Tabla de productos -->
-    <div class="card">
-      <div class="card-header">
-        <h5>Lista de Productos</h5>
-      </div>
-      <div class="card-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Marca</th>
-              <th>Precio</th>
-              <th>Información</th>
-              <th>Categoría</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Producto Ejemplo</td>
-              <td>Marca Ejemplo</td>
-              <td>$100</td>
-              <td>Descripción del producto ejemplo.</td>
-              <td>Electrónica</td>
-              <td>
-                <button class="btn btn-warning btn-sm">Editar</button>
-                <button class="btn btn-danger btn-sm">Borrar</button>
-              </td>
-            </tr>
-            <!-- Más filas de productos aquí -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  
-    <!-- Sección para ver categorías -->
-    <div class="card mt-4">
-      <div class="card-header">
-        <h5>Categorías</h5>
-      </div>
-      <div class="card-body">
-        <ul class="list-group">
-          <li class="list-group-item">Electrónica</li>
-          <li class="list-group-item">Hogar</li>
-          <li class="list-group-item">Jardín</li>
-          <li class="list-group-item">Deportes</li>
-        </ul>
-      </div>
+    <div class="card-body">
+      <form #createProductForm="ngForm" (ngSubmit)="onCreateProduct(createProductForm)" novalidate>
+        <div class="mb-3">
+          <label for="createProductName" class="form-label">Nombre del Producto</label>
+          <input type="text" class="form-control" id="createProductName" name="name" ngModel required #name="ngModel">
+          <div *ngIf="name.invalid && name.touched" class="text-danger">El nombre es obligatorio.</div>
+        </div>
+        <div class="mb-3">
+          <label for="createProductBrand" class="form-label">Marca</label>
+          <input type="text" class="form-control" id="createProductBrand" name="brand" ngModel required #brand="ngModel">
+          <div *ngIf="brand.invalid && brand.touched" class="text-danger">La marca es obligatoria.</div>
+        </div>
+        <div class="mb-3">
+          <label for="createProductPrice" class="form-label">Precio</label>
+          <input type="number" class="form-control" id="createProductPrice" name="price" ngModel required #price="ngModel">
+          <div *ngIf="price.invalid && price.touched" class="text-danger">El precio es obligatorio.</div>
+        </div>
+        <div class="mb-3">
+          <label for="createProductInfo" class="form-label">Información</label>
+          <textarea class="form-control" id="createProductInfo" name="info" rows="3" ngModel required #info="ngModel"></textarea>
+          <div *ngIf="info.invalid && info.touched" class="text-danger">La información es obligatoria.</div>
+        </div>
+        <div class="mb-3">
+          <label for="createProductImageUrl" class="form-label">URL de la Imagen</label>
+          <input type="url" class="form-control" id="createProductImageUrl" name="image" ngModel required #image="ngModel">
+          <div *ngIf="image.invalid && image.touched" class="text-danger">La URL de la imagen es obligatoria.</div>
+        </div>
+        <div class="mb-3">
+          <label for="createProductCategory" class="form-label">Categoría</label>
+          <select class="form-select" id="createProductCategory" name="category" ngModel required #category="ngModel">
+            <option value="">Seleccione una categoría</option>
+            <option *ngFor="let category of categories" [value]="category.id">{{category.info}}</option>
+          </select>
+          <div *ngIf="category.invalid && category.touched" class="text-danger">La categoría es obligatoria.</div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="createProductForm.invalid">Crear</button>
+      </form>
     </div>
   </div>
-  
-<app-footer></app-footer>  
+
+  <!-- Tabla de productos -->
+  <div class="card">
+    <div class="card-header">
+      <h5>Lista de Productos</h5>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Información</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.brand }}</td>
+            <td>${{ product.price }}</td>
+            <td>{{ product.info }}</td>
+            <td>{{ product.category }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm" (click)="editProduct(product.id)">Editar</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)">Borrar</button>
+            </td>
+          </tr>
+          <!-- Más filas de productos aquí -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

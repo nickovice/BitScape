@@ -4,6 +4,7 @@ import { Category } from './category';
 import { ProductDataService } from '../product-data.service';
 import { Brand } from './brand';
 import { SearchService } from '../search.service';
+import { Product } from '../admin/product';
 
 @Component({
   selector: 'app-products',
@@ -11,7 +12,7 @@ import { SearchService } from '../search.service';
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent implements OnInit {
-  productsCards: ProductCard[] = []
+  productsCards: Product[] = []
 
   categories: Category[] = []
 
@@ -48,7 +49,7 @@ export class ProductsComponent implements OnInit {
   }
 
   sort(order: string) {
-    this.productsCards.sort((a: ProductCard, b: ProductCard) => {
+    this.productsCards.sort((a: Product, b: Product) => {
       if (order == "asc") {
         return a.price - b.price
       }

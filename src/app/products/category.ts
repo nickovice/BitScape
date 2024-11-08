@@ -1,4 +1,5 @@
 export interface Category {
     info: string,
-    name: string
+    name: string,
+    id: number,
 }
