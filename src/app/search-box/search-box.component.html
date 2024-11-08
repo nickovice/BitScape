@@ -1,10 +1,21 @@
+<!-- Overlay con opacidad (solo visible cuando isLoading es true) -->
+<div *ngIf="isLoading" class="overlay">
+  <div class="spinner"></div>
+</div>
+
 <div class="searchDiv" style="margin-top: 30px;">
-    <div class="col-md-6">
-      <div class="d-flex flexSearchBox">
-        <div class="input-group me-2">
-           <input type="text" class="form-control custom-input" [(ngModel)]="query" (keydown.enter)="search()" placeholder="Buscar productos...">
-          <button class="btn btn-outline-secondary custom-button" type="button" (click)="search()">Buscar</button>
-        </div>
+  <div class="col-md-6">
+    <div class="d-flex flexSearchBox">
+      <div class="input-group me-2">
+        <input type="text" 
+               class="form-control custom-input" 
+               [(ngModel)]="query" 
+               (keydown.enter)="search()" 
+               placeholder="Buscar productos...">
+        <button class="btn btn-outline-secondary custom-button" 
+                type="button" 
+                (click)="search()">Buscar</button>
       </div>
     </div>
   </div>
+</div>

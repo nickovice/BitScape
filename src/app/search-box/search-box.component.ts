@@ -5,20 +5,26 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-search-box',
   templateUrl: './search-box.component.html',
-  styleUrl: './search-box.component.scss'
+  styleUrls: ['./search-box.component.scss']
 })
 export class SearchBoxComponent {
 
   query: string = '';
+  isLoading: boolean = false;
 
   constructor(private searchService: SearchService, private router: Router) { }
+
   ngOnInit(): void {
     
   }
 
-  search(){
+  search(): void {
+    this.isLoading = true;
     this.searchService.updateQuery(this.query);
-    this.router.navigate(['/products']);
+    setTimeout(() => {
+      this.router.navigate(['/products']);
+      this.isLoading = false;
+    }, 800);
   }
-  
 }
+
