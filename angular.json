@@ -46,7 +46,11 @@
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
             ],
-            "baseHref": "/" // Asegura que las rutas funcionen correctamente en producción
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
