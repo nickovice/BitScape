@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit {
       img: "https://http2.mlstatic.com/D_NQ_NP_917440-MLA52081654076_102022-O.webp"
     },
     {
-      name: "NVidia RTX 4090",
-      img: "https://m.media-amazon.com/images/I/51EL-FaK4XL.jpg"
+      name: "Nvidia RTX 4090",
+      img: "https://i.ebayimg.com/images/g/y7YAAOSwt0Nk73zs/s-l1600.jpg"
     },
   ]
   constructor() { }
