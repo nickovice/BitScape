@@ -22,7 +22,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.loadData();
     this.searchService.searchQuery.subscribe(query => {
-      console.log(query);
       this.productDataService.search(query).subscribe(productsCards => this.productsCards = productsCards);
     }) 
   }
