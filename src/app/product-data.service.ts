@@ -39,6 +39,17 @@ export class ProductDataService {
     return this.http.post<any>(url + '/products', product);
   }
 
+  deleteProduct(id: number | undefined) {
+    return this.http.delete<any>(url + '/products/' + id);
+  }
+
+  deleteCategory(id: number | undefined) {
+    return this.http.delete<any>(url + '/categories/' + id);
+  }
+
+  createCategory(category: Category){
+    return this.http.post<any>(url + '/categories', category);
+  }
 
 
 }

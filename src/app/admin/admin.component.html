@@ -46,6 +46,28 @@
     </div>
   </div>
 
+  <div class="card mb-4">
+    <div class="card-header">
+      <h5>Crear Categoría</h5>
+    </div>
+    <div class="card-body">
+      <form #createCategoryForm="ngForm" (ngSubmit)="onCreateCategory(createCategoryForm)" novalidate>
+        <div class="mb-3">
+          <label for="createCategoryName" class="form-label">Nombre de la Categoría (en minusculas y separado por guiones bajos )</label>
+          <input type="text" class="form-control" id="createCategoryName" name="name" ngModel required #name="ngModel">
+          <div *ngIf="name.invalid && name.touched" class="text-danger">El nombre es obligatorio.</div>
+        </div>
+        <div class="mb-3">
+          <label for="createCategoryInfo" class="form-label">Información</label>
+          <textarea class="form-control" id="createCategoryInfo" name="info" rows="3" ngModel required #info="ngModel"></textarea>
+          <div *ngIf="info.invalid && info.touched" class="text-danger">La información es obligatoria.</div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="createCategoryForm.invalid">Crear</button>
+      </form>
+    </div>
+  </div>
+  
+
   <!-- Tabla de productos -->
   <div class="card">
     <div class="card-header">
@@ -61,7 +83,7 @@
             <th>Precio</th>
             <th>Información</th>
             <th>Categoría</th>
-            <th>Acciones</th>
+            <th>Acción</th>
           </tr>
         </thead>
         <tbody>
@@ -73,11 +95,37 @@
             <td>{{ product.info }}</td>
             <td>{{ product.category }}</td>
             <td>
-              <button class="btn btn-warning btn-sm" (click)="editProduct(product.id)">Editar</button>
-              <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)">Borrar</button>
+              <button class="btn btn-danger btn-sm" (click)="onDeleteProduct(product.id)">Borrar</button>
             </td>
           </tr>
-          <!-- Más filas de productos aquí -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h5>Lista de Categorias</h5>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Información</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <td>{{ category.id }}</td>
+            <td>{{ category.name }}</td>
+            <td>{{ category.info }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="onDeleteCategory(category.id)">Borrar</button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
