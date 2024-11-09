@@ -1,9 +1,9 @@
 <p align="center">
-  <a target="blank"><img src="https://i.imgur.com/vDeRbsC.png" width="250" /></a>
+  <a target="_blank"><img src="https://i.imgur.com/vDeRbsC.png" width="250" /></a>
 </p>
 <br>
 <p align="center">
-<a href="https://bitscape-app.vercel.app" target="blank">Visit the website &#8599</a>
+<a href="https://bitscape-app.vercel.app" target="_blank">Visit the website &#8599</a>
 </p>
 <br>
 ## Development server
