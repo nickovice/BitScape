@@ -52,13 +52,13 @@
       <form #createCategoryForm="ngForm" (ngSubmit)="onCreateCategory(createCategoryForm)" novalidate>
         <div class="mb-3">
           <label for="createCategoryName" class="form-label">Nombre de la Categoría (en minusculas y separado por guiones bajos)</label>
-          <input type="text" class="form-control" id="createCategoryName" name="name" ngModel required #name="ngModel">
-          <div *ngIf="name.invalid && name.touched" class="text-danger">El nombre es obligatorio.</div>
+          <input type="text" class="form-control" id="createCategoryName" name="namee" ngModel required #namee="ngModel">
+          <div *ngIf="namee.invalid && namee.touched" class="text-danger">El nombre es obligatorio.</div>
         </div>
         <div class="mb-3">
           <label for="createCategoryInfo" class="form-label">Información</label>
-          <textarea class="form-control" id="createCategoryInfo" name="info" rows="3" ngModel required #info="ngModel"></textarea>
-          <div *ngIf="info.invalid && info.touched" class="text-danger">La información es obligatoria.</div>
+          <textarea class="form-control" id="createCategoryInfo" name="infoo" rows="3" ngModel required #infoo="ngModel"></textarea>
+          <div *ngIf="infoo.invalid && infoo.touched" class="text-danger">La información es obligatoria.</div>
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="createCategoryForm.invalid">Crear</button>
       </form>

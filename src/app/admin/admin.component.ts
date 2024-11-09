@@ -48,8 +48,8 @@ export class AdminComponent {
   onCreateCategory(form: NgForm) {
     if (form.valid) {
       const category: Category = {
-        name: form.value.name,
-        info: form.value.info
+        name: form.value.namee,
+        info: form.value.infoo
       };
   
       this.productDataService.createCategory(category).subscribe(response => {
