@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ProductDataService } from '../product-data.service';
 import { Category } from '../products/category';
@@ -9,20 +10,30 @@ import { Product } from './product';
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss'
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
 
   categories: Category[] = []
   products: Product[] = [];
 
-  constructor(private productDataService: ProductDataService) { }
+  constructor(
+    private productDataService: ProductDataService,
+    private router: Router // Para forzar navegación
+  ) { }
 
   ngOnInit(): void {
+    this.loadData();
+    this.router.events.subscribe(() => {
+      this.loadData();
+    });
+  }
+
+  loadData(): void {
     this.productDataService.getAllCategories().subscribe(
       categories => this.categories = categories
     );
     this.productDataService.getAllProducts().subscribe(products => {
       this.products = products;
-    })
+    });
   }
 
   onCreateProduct(form: NgForm) {
