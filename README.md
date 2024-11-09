@@ -1,4 +1,6 @@
-# BitscapeApp
+<p align="center">
+  <a target="blank"><img src="https://i.imgur.com/vDeRbsC.png" width="250" /></a>
+</p>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
 
