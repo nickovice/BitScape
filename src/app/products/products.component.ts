@@ -1,5 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { ProductCard } from './productCard';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from './category';
 import { ProductDataService } from '../product-data.service';
 import { Brand } from './brand';
@@ -12,20 +12,28 @@ import { Product } from '../admin/product';
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent implements OnInit {
-  productsCards: Product[] = []
+  productsCards: Product[] = [];
+  categories: Category[] = [];
+  brands: Brand[] = [];
 
-  categories: Category[] = []
+  constructor(
+    private productDataService: ProductDataService,
+    private searchService: SearchService,
+    private router: Router  // Para forzar la recarga de datos
+  ) { }
 
-  brands: Brand[] = []
-
-  constructor(private productDataService: ProductDataService, private searchService: SearchService) { }
   ngOnInit(): void {
     this.loadData();
+
+    // Detectar cambios en la URL
+    this.router.events.subscribe(() => {
+      this.loadData();
+    });
+
     this.searchService.searchQuery.subscribe(query => {
       this.productDataService.search(query).subscribe(productsCards => this.productsCards = productsCards);
-    }) 
+    });
   }
-
 
   loadData(): void {
     this.productDataService.getAllProducts().subscribe(productsCards => {
@@ -33,7 +41,7 @@ export class ProductsComponent implements OnInit {
       this.brands = Array.from(new Set(productsCards.map(p => p.brand)))
                          .map(brand => ({ brand }));
     });
-  
+
     this.productDataService.getAllCategories().subscribe(
       categories => this.categories = categories
     );
@@ -50,13 +58,10 @@ export class ProductsComponent implements OnInit {
   sort(order: string) {
     this.productsCards.sort((a: Product, b: Product) => {
       if (order == "asc") {
-        return a.price - b.price
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
       }
-      else {
-        return b.price - a.price
-      }
-    })
+    });
   }
-
-
 }
