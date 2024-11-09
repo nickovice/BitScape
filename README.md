@@ -1,9 +1,11 @@
 <p align="center">
   <a target="blank"><img src="https://i.imgur.com/vDeRbsC.png" width="250" /></a>
 </p>
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
-
+<br>
+<p align="center">
+<a href="https://bitscape-app.vercel.app" target="_blank">Visit the website &#8599</a>
+</p>
+<br>
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
