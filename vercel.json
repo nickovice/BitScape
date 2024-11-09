@@ -4,25 +4,5 @@
             "source": "/(.*)",
             "destination": "/"
         }
-    ],
-    "headers": [
-        {
-            "source": "/admin",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "no-cache, no-store, must-revalidate"
-                }
-            ]
-        },
-        {
-            "source": "/products",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "no-cache, no-store, must-revalidate"
-                }
-            ]
-        }
     ]
 }
