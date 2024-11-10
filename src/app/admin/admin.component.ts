@@ -22,6 +22,9 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
+    this.router.events.subscribe(() => {
+      this.loadData();
+    });
   }
 
   loadData(): void {
