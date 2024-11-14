@@ -73,7 +73,7 @@ export class AdminComponent implements OnInit {
   onDeleteCategory(id: number | undefined) {
     const productosConCategoriaId = this.products.filter(producto => producto.category === id);
     if (productosConCategoriaId.length === 0) {
-    this.productDataService.deleteCategory(id).subscribe(response => { alert(response.message); window.location.reload(); });
+    this.productDataService.deleteCategory(id).subscribe(response => { alert(response.message); this.loadData(); });
     }
     else {
       alert("La categoria a borrar contiene productos. Intente nuevamente con una vacía.");
