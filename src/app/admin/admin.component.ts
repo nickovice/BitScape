@@ -48,12 +48,12 @@ export class AdminComponent implements OnInit {
         category: categoryId
       };
 
-      this.productDataService.createProduct(product).subscribe(response => { alert(response.message); window.location.reload(); });
+      this.productDataService.createProduct(product).subscribe(response => { alert(response.message); this.loadData(); });
     }
   }
 
   onDeleteProduct(id: number | undefined) {
-    this.productDataService.deleteProduct(id).subscribe(response => { alert(response.message); window.location.reload(); });
+    this.productDataService.deleteProduct(id).subscribe(response => { alert(response.message); this.loadData(); });
   }
 
   onCreateCategory(form: NgForm) {
@@ -65,7 +65,7 @@ export class AdminComponent implements OnInit {
   
       this.productDataService.createCategory(category).subscribe(response => {
         alert(response.message);
-        window.location.reload();
+        this.loadData();
       });
     }
   }
