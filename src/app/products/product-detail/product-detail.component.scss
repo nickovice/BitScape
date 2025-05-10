@@ -17,7 +17,12 @@
     padding: 10px;
     align-self: flex-start; 
     margin-bottom: 30px;
-    margin-right: 70vw
+    margin-right: 70vw;
+    transition: transform 0.12s;
+}
+
+.goBack:active{
+    transform: scale(0.95);
 }
 
 .card{

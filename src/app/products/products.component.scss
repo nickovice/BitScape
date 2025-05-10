@@ -35,6 +35,10 @@ h5{
     text-align: center;
 }
 
+.dropdown-toggle:hover {
+    background-color: rgb(56, 67, 87);
+}
+
 .dropdown {
     text-align: center;
 }
@@ -67,8 +71,6 @@ h5{
     /* Cambia #FF5733 por el color que desees */
 }
     
-
-
 .sortButtonsContainer {
     display: flex;
     justify-content: center;
@@ -87,7 +89,7 @@ h5{
 }
 
 .btn:active {
-    background-color: rgba(0, 39, 110, 0.452);
+    background-color: $button-active;
     color: white;
     border: 1.5px solid white;
     transform: scale(0.95);
@@ -107,7 +109,7 @@ h5{
 }
 
 .sortBtn:active {
-    background-color: rgba(0, 8, 23, 0.452);
+    background-color: $button-active;
     color: white;
     border: 2px solid white;
     transform: scale(0.95);
