@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from './products/product-detail/product';
 
-const url = "https://bitscape-api.onrender.com/products/";
+const url = "http://localhost:3000/products/";
 
 @Injectable({
   providedIn: 'root'

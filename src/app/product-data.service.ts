@@ -6,7 +6,7 @@ import { Category } from './products/category';
 import { NgForm } from '@angular/forms';
 import { Product } from './admin/product';
 
-const url = "https://bitscape-api.onrender.com";
+const url = "http://localhost:3000";
 
 @Injectable({
   providedIn: 'root'
