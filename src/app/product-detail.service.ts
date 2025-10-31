@@ -2,17 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from './products/product-detail/product';
-
-const url = "https://bitscape-api.onrender.com/products/";
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductDetailService {
+  private url = environment.apiUrl + '/products/';
 
-  constructor(private http: HttpClient) { }
-  
+  constructor(private http: HttpClient) {}
+
   getOne(id: string): Observable<Product> { 
-    return this.http.get<Product>(url + id);
+    return this.http.get<Product>(`${this.url}${id}`);
   }
 }
