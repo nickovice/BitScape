@@ -4,3 +4,5 @@ npm-debug.log
 .env
 .env.test
 docker-compose.yml
+environment.ts
+environment.development.ts
