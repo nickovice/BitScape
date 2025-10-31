@@ -16,7 +16,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 🧩 Crear los environment.ts de Angular antes del build
       - name: Create Angular environment files
         run: |
           mkdir -p src/environments
@@ -45,5 +44,5 @@ jobs:
           tags: |
             ghcr.io/nickovice/bitscape-app:latest
             ghcr.io/nickovice/bitscape-app:${{ github.sha }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/bitscape-api:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/bitscape-api:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/bitscape-app:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/bitscape-app:${{ github.sha }}
