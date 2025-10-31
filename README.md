@@ -6,9 +6,10 @@
 <a href="https://bitscape-app.vercel.app" target="_blank">Visit the website &#8599</a>
 </p>
 <br>
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve --configuration development` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -16,7 +17,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build --configuration production` to build the project with production API. The build artifacts will be stored in the `dist/` directory.
+
+Run `ng build --configuration development` to use local API.
 
 ## Running unit tests
 
