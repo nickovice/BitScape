@@ -2,9 +2,9 @@ name: Angular CI
 
 on:
   push:
-    branches: [ main, development, testing ]
+    branches: [ main, testing ]
   pull_request:
-    branches: [ main, development ]
+    branches: [ main, testing ]
 
 jobs:
   build-and-test:
@@ -25,7 +25,13 @@ jobs:
     
     - name: Install dependencies
       run: npm ci
-    
+
+    - name: Create Angular environment files
+      run: |
+        mkdir -p src/environments
+        echo "export const environment = { production: false, apiUrl: '${{ secrets.API_URL_DEV }}' };" > src/environments/environment.development.ts
+        echo "export const environment = { production: true, apiUrl: '${{ secrets.API_URL_PROD }}' };" > src/environments/environment.ts
+
     - name: Build
       run: npm run build --if-present
     
