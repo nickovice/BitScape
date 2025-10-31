@@ -16,6 +16,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 🧩 Crear los environment.ts de Angular antes del build
+      - name: Create Angular environment files
+        run: |
+          mkdir -p src/environments
+          echo "export const environment = { production: false, apiUrl: '${{ secrets.API_URL_DEV }}' };" > src/environments/environment.ts
+          echo "export const environment = { production: true, apiUrl: '${{ secrets.API_URL_PROD }}' };" > src/environments/environment.prod.ts
+
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
