@@ -1,0 +1,7 @@
+services:
+  bitscape-app:
+    image: nicovice/bitscape-app:latest
+    ports:
+      - '4200:4200'
+    environment:
+      API_URL: 'http://localhost:3000'
