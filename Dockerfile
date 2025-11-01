@@ -13,6 +13,6 @@ COPY --from=build /app/dist/bitscape-app /app/dist/bitscape-app
 COPY --from=build /app/package*.json .
 COPY --from=build /app/server.ts .
 RUN npm install --production
-EXPOSE 4200
+EXPOSE 4000
 ENV API_URL=${API_URL}
 CMD ["npm", "run", "serve:ssr:bitscape-app"]
