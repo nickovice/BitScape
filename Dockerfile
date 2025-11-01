@@ -3,10 +3,16 @@ WORKDIR /app
 COPY package*.json .
 RUN npm install
 COPY . .
+ARG API_URL
+ENV API_URL=${API_URL}
 RUN npm run build --prod
 
-FROM nginx:alpine
-COPY --from=build /app/dist/bitscape-app/browser/ /usr/share/nginx/html
-COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM node:alpine
+WORKDIR /app
+COPY --from=build /app/dist/bitscape-app /app/dist/bitscape-app
+COPY --from=build /app/package*.json .
+COPY --from=build /app/server.ts .
+RUN npm install --production
+EXPOSE 4200
+ENV API_URL=${API_URL}
+CMD ["npm", "run", "serve:ssr:bitscape-app"]
