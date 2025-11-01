@@ -7,6 +7,10 @@
 </p>
 <br>
 
+## USING DOCKER COMPOSE
+
+Run `docker compose up` and go to http://localhost:4200
+
 ## Development server
 
 Run `ng serve --configuration development` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
