@@ -7,9 +7,23 @@
 </p>
 <br>
 
-## USING DOCKER COMPOSE
+## Docker Usage
 
 Run `docker compose up` and go to http://localhost:4200
+
+## Kubernetes Usage
+
+Deploy all required Kubernetes resources (Pods, Service and HPA) with:
+
+`kubectl apply -f <folder-or-file>`
+
+Expose the frontend service locally using port forwarding:
+
+`kubectl port-forward svc/bitscape-app-svc 4000:80 --address 0.0.0.0`
+
+Access the application at:  
+http://localhost:4000
+
 
 ## Development server
 
