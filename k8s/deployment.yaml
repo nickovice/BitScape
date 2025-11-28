@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitscape-app
+  labels:
+    app: bitscape-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bitscape-app
+  template:
+    metadata:
+      labels:
+        app: bitscape-app
+    spec:
+      containers:
+      - name: bitscape-app
+        image: ghcr.io/nickovice/bitscape-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4000
+          name: http
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
